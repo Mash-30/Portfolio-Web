@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media X - Logo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #00B894, #00A085);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .logo-container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo {
+            width: 200px;
+            height: 200px;
+            background: #00A085;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+            animation: logoFloat 3s ease-in-out infinite;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 60px rgba(0,0,0,0.4);
+        }
+        
+        .logo::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: 15px;
+            bottom: 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            z-index: -1;
+        }
+        
+        .logo-text {
+            font-size: 100px;
+            font-weight: bold;
+            color: white;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            animation: logoPulse 2s ease-in-out infinite;
+        }
+        
+        .app-name {
+            font-size: 60px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 20px;
+            letter-spacing: 6px;
+            text-shadow: 0 4px 8px rgba(0,0,0,0.3);
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+        
+        .tagline {
+            color: rgba(255,255,255,0.8);
+            font-size: 18px;
+            font-weight: 300;
+            letter-spacing: 2px;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+        
+        .background-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .pattern-square {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: #4ADE80;
+            border-radius: 6px;
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .pattern-square:nth-child(1) { top: 15%; left: 15%; animation-delay: 0s; }
+        .pattern-square:nth-child(2) { top: 15%; left: 35%; animation-delay: 0.5s; }
+        .pattern-square:nth-child(3) { top: 15%; left: 55%; animation-delay: 1s; }
+        .pattern-square:nth-child(4) { top: 15%; left: 75%; animation-delay: 1.5s; }
+        .pattern-square:nth-child(5) { top: 35%; left: 15%; animation-delay: 2s; }
+        .pattern-square:nth-child(6) { top: 35%; left: 35%; animation-delay: 2.5s; }
+        .pattern-square:nth-child(7) { top: 35%; left: 55%; animation-delay: 3s; }
+        .pattern-square:nth-child(8) { top: 35%; left: 75%; animation-delay: 3.5s; }
+        .pattern-square:nth-child(9) { top: 55%; left: 15%; animation-delay: 4s; }
+        .pattern-square:nth-child(10) { top: 55%; left: 35%; animation-delay: 4.5s; }
+        .pattern-square:nth-child(11) { top: 55%; left: 55%; animation-delay: 5s; }
+        .pattern-square:nth-child(12) { top: 55%; left: 75%; animation-delay: 5.5s; }
+        .pattern-square:nth-child(13) { top: 75%; left: 15%; animation-delay: 6s; }
+        .pattern-square:nth-child(14) { top: 75%; left: 35%; animation-delay: 6.5s; }
+        .pattern-square:nth-child(15) { top: 75%; left: 55%; animation-delay: 7s; }
+        .pattern-square:nth-child(16) { top: 75%; left: 75%; animation-delay: 7.5s; }
+        
+        @keyframes logoFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(2deg); }
+        }
+        
+        @keyframes logoPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes textGlow {
+            0% { text-shadow: 0 4px 8px rgba(0,0,0,0.3); }
+            100% { text-shadow: 0 4px 8px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.3); }
+        }
+        
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0px) rotate(0deg); 
+                opacity: 0.1; 
+            }
+            50% { 
+                transform: translateY(-15px) rotate(180deg); 
+                opacity: 0.3; 
+            }
+        }
+        
+        @keyframes fadeInUp {
+            0% { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .logo {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .logo-text {
+                font-size: 80px;
+            }
+            
+            .app-name {
+                font-size: 40px;
+                letter-spacing: 3px;
+            }
+            
+            .tagline {
+                font-size: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .logo {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .logo-text {
+                font-size: 60px;
+            }
+            
+            .app-name {
+                font-size: 32px;
+                letter-spacing: 2px;
+            }
+            
+            .tagline {
+                font-size: 14px;
+            }
+        }
+        
+        /* Interactive effects */
+        .logo:active {
+            transform: scale(0.95);
+        }
+        
+        /* Additional decorative elements */
+        .sparkle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+        
+        .sparkle:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+        .sparkle:nth-child(2) { top: 30%; right: 20%; animation-delay: 0.5s; }
+        .sparkle:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 1s; }
+        .sparkle:nth-child(4) { bottom: 20%; right: 30%; animation-delay: 1.5s; }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="background-pattern">
+        <div class="pattern-square"></div>
+        <div class="pattern-square"></div>
+        <div class="pattern-square"></div>
+        <div class="pattern-square"></div>
+        <div class="pattern-square"></div>
+        <div class="pattern-square"></div>
+        <div class="pattern-square"></div>
+        <div class="pattern-square"></div>
+        <div class="pattern-square"></div>
+        <div class="pattern-square"></div>
+        <div class="pattern-square"></div>
+        <div class="pattern-square"></div>
+        <div class="pattern-square"></div>
+        <div class="pattern-square"></div>
+        <div class="pattern-square"></div>
+        <div class="pattern-square"></div>
+    </div>
+    
+    <div class="logo-container">
+        <div class="logo">
+            <div class="logo-text">X</div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+            <div class="sparkle"></div>
+        </div>
+        <div class="app-name">MEDIA X</div>
+        <div class="tagline">Connect • Share • Inspire</div>
+    </div>
+    
+    <script>
+        // Add interactive effects
+        const logo = document.querySelector('.logo');
+        
+        logo.addEventListener('mouseenter', () => {
+            logo.style.animation = 'none';
+            logo.offsetHeight; // Trigger reflow
+            logo.style.animation = 'logoFloat 1s ease-in-out infinite';
+        });
+        
+        logo.addEventListener('mouseleave', () => {
+            logo.style.animation = 'logoFloat 3s ease-in-out infinite';
+        });
+        
+        // Add click effect
+        logo.addEventListener('click', () => {
+            logo.style.transform = 'scale(0.9)';
+            setTimeout(() => {
+                logo.style.transform = 'scale(1)';
+            }, 150);
+        });
+        
+        // Add keyboard support
+        logo.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                logo.click();
+            }
+        });
+        
+        // Make logo focusable
+        logo.setAttribute('tabindex', '0');
+        logo.setAttribute('role', 'button');
+        logo.setAttribute('aria-label', 'Media X Logo');
+    </script>
+</body>
+</html>

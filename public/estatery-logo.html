@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estatery - Real Estate Logo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: linear-gradient(135deg, #46246E 0%, #8B5CF6 50%, #A855F7 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            max-width: 100%;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        .logo-header {
+            text-align: center;
+            margin-bottom: 0;
+            z-index: 10;
+        }
+
+        .logo-header h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .logo-header p {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            animation: fadeInUp 1.5s ease-out 0.3s both;
+        }
+
+        /* Main Logo Container */
+        .main-logo-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            z-index: 10;
+        }
+
+        .complete-logo {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 32px;
+            padding: 80px 60px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 900px;
+            width: 90%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideInUp 2s ease-out 0.5s both;
+        }
+
+        .complete-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 35px 70px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.2);
+        }
+
+        .logo-icon-section {
+            flex-shrink: 0;
+        }
+
+        .enhanced-house-icon {
+            width: 150px;
+            height: 150px;
+            position: relative;
+            filter: drop-shadow(0 10px 30px rgba(139, 92, 246, 0.4));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .enhanced-house-icon::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 3s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        .enhanced-house-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo-text-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .brand-name {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 50%, #C084FC 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            text-shadow: 0 4px 20px rgba(139, 92, 246, 0.4);
+            animation: fadeInUp 2s ease-out 1s both;
+            filter: drop-shadow(0 0 20px rgba(139, 92, 246, 0.3));
+        }
+
+        .tagline {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 8px;
+            animation: fadeInUp 2s ease-out 1.2s both;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            animation: fadeInUp 2s ease-out 1.4s both;
+        }
+
+        .feature-tag {
+            background: linear-gradient(135deg, #8B5CF6 0%, #A855F7 100%);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .feature-tag:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #A855F7 0%, #C084FC 100%);
+            box-shadow: 0 8px 25px rgba(139, 92, 246, 0.5);
+        }
+
+        /* Usage Examples */
+        .usage-examples {
+            margin-top: 40px;
+            width: 100%;
+        }
+
+        .usage-examples h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #334155;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .usage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .usage-example {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        .usage-example h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 10px;
+        }
+
+        .usage-example p {
+            font-size: 0.9rem;
+            color: #64748b;
+            line-height: 1.5;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo-container {
+                gap: 0;
+                padding: 0;
+            }
+
+            .complete-logo {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 40px;
+                gap: 40px;
+                width: 95%;
+            }
+
+            .enhanced-house-icon {
+                width: 120px;
+                height: 120px;
+            }
+
+            .brand-name {
+                font-size: 3rem;
+            }
+
+            .tagline {
+                font-size: 1.3rem;
+            }
+
+            .features {
+                justify-content: center;
+            }
+
+            .logo-header h1 {
+                font-size: 3rem;
+            }
+
+            .logo-header p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .complete-logo {
+                padding: 50px 30px;
+            }
+
+            .brand-name {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .feature-tag {
+                font-size: 0.9rem;
+                padding: 6px 16px;
+            }
+
+            .logo-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .logo-header p {
+                font-size: 1rem;
+            }
+
+            .enhanced-house-icon {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        /* Splash Screen Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Background particles effect */
+        .splash-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .splash-background {
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container splash-background">
+        <div class="logo-header">
+            <h1>Estatery</h1>
+            <p>Your Complete Real Estate Platform</p>
+        </div>
+
+        <!-- Single Comprehensive Logo -->
+        <div class="main-logo-container">
+            <div class="complete-logo">
+                <div class="logo-icon-section">
+                    <div class="enhanced-house-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Main house structure -->
+                            <path d="M32 4L56 20V52H44V32H20V52H8V20L32 4Z" fill="#8B5CF6" stroke="#6D28D9" stroke-width="2"/>
+                            <!-- Roof details -->
+                            <path d="M32 4L56 20L44 20L32 4L20 20L8 20L32 4Z" fill="#A855F7" opacity="0.9"/>
+                            <!-- Door -->
+                            <rect x="26" y="36" width="12" height="16" fill="#6D28D9" rx="2"/>
+                            <!-- Windows -->
+                            <rect x="12" y="24" width="8" height="8" fill="#E0E7FF" rx="1"/>
+                            <rect x="44" y="24" width="8" height="8" fill="#E0E7FF" rx="1"/>
+                            <!-- Chimney -->
+                            <rect x="40" y="8" width="4" height="12" fill="#6D28D9"/>
+                            <!-- Foundation -->
+                            <rect x="6" y="50" width="52" height="4" fill="#4C1D95"/>
+                            <!-- Glow effect -->
+                            <path d="M32 4L56 20V52H44V32H20V52H8V20L32 4Z" fill="none" stroke="#8B5CF6" stroke-width="3" opacity="0.3"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="logo-text-section">
+                    <div class="brand-name">Estatery</div>
+                    <div class="tagline">Real Estate Platform</div>
+                    <div class="features">
+                        <span class="feature-tag">Properties</span>
+                        <span class="feature-tag">Rentals</span>
+                        <span class="feature-tag">Agents</span>
+                        <span class="feature-tag">Search</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

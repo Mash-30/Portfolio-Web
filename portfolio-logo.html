@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Logo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 50%, #475569 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 0;
+            overflow: hidden;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            max-width: 100%;
+            width: 100%;
+            height: 100vh;
+            position: relative;
+        }
+
+        .logo-header {
+            text-align: center;
+            margin-bottom: 0;
+            z-index: 10;
+        }
+
+        .logo-header h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .logo-header p {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 300;
+            animation: fadeInUp 1.5s ease-out 0.3s both;
+        }
+
+        /* Main Logo Container */
+        .main-logo-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            z-index: 10;
+        }
+
+        .complete-logo {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border-radius: 32px;
+            padding: 80px 60px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            max-width: 900px;
+            width: 90%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: slideInUp 2s ease-out 0.5s both;
+        }
+
+        .complete-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 35px 70px -12px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.2);
+        }
+
+        .logo-icon-section {
+            flex-shrink: 0;
+        }
+
+        .enhanced-code-icon {
+            width: 150px;
+            height: 150px;
+            position: relative;
+            filter: drop-shadow(0 10px 30px rgba(59, 130, 246, 0.4));
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .enhanced-code-icon::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+            animation: pulse 3s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        .enhanced-code-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo-text-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .brand-name {
+            font-size: 4rem;
+            font-weight: 900;
+            background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 50%, #93C5FD 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.03em;
+            line-height: 1;
+            text-shadow: 0 4px 20px rgba(59, 130, 246, 0.4);
+            animation: fadeInUp 2s ease-out 1s both;
+            filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.3));
+        }
+
+        .tagline {
+            font-size: 1.6rem;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 8px;
+            animation: fadeInUp 2s ease-out 1.2s both;
+        }
+
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            animation: fadeInUp 2s ease-out 1.4s both;
+        }
+
+        .feature-tag {
+            background: linear-gradient(135deg, #3B82F6 0%, #60A5FA 100%);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 500;
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .feature-tag:hover {
+            transform: translateY(-3px);
+            background: linear-gradient(135deg, #60A5FA 0%, #93C5FD 100%);
+            box-shadow: 0 8px 25px rgba(59, 130, 246, 0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .logo-container {
+                gap: 0;
+                padding: 0;
+            }
+
+            .complete-logo {
+                flex-direction: column;
+                text-align: center;
+                padding: 60px 40px;
+                gap: 40px;
+                width: 95%;
+            }
+
+            .enhanced-code-icon {
+                width: 120px;
+                height: 120px;
+            }
+
+            .brand-name {
+                font-size: 3rem;
+            }
+
+            .tagline {
+                font-size: 1.3rem;
+            }
+
+            .features {
+                justify-content: center;
+            }
+
+            .logo-header h1 {
+                font-size: 3rem;
+            }
+
+            .logo-header p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .complete-logo {
+                padding: 50px 30px;
+            }
+
+            .brand-name {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.1rem;
+            }
+
+            .feature-tag {
+                font-size: 0.9rem;
+                padding: 6px 16px;
+            }
+
+            .logo-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .logo-header p {
+                font-size: 1rem;
+            }
+
+            .enhanced-code-icon {
+                width: 100px;
+                height: 100px;
+            }
+        }
+
+        /* Splash Screen Animations */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-15px) rotate(2deg); }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px) scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Background particles effect */
+        .splash-background::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        .splash-background {
+            position: relative;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container splash-background">
+        <div class="logo-header">
+            <h1>Portfolio</h1>
+            <p>Modern Web Development</p>
+        </div>
+
+        <!-- Single Comprehensive Logo -->
+        <div class="main-logo-container">
+            <div class="complete-logo">
+                <div class="logo-icon-section">
+                    <div class="enhanced-code-icon">
+                        <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Code brackets -->
+                            <path d="M16 8L8 16L16 24" stroke="#3B82F6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M48 8L56 16L48 24" stroke="#3B82F6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <!-- Code lines -->
+                            <path d="M24 16H40" stroke="#60A5FA" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M20 24H44" stroke="#60A5FA" stroke-width="2" stroke-linecap="round"/>
+                            <path d="M28 32H36" stroke="#60A5FA" stroke-width="2" stroke-linecap="round"/>
+                            <!-- Glow effect -->
+                            <path d="M16 8L8 16L16 24" stroke="#3B82F6" stroke-width="5" opacity="0.3"/>
+                            <path d="M48 8L56 16L48 24" stroke="#3B82F6" stroke-width="5" opacity="0.3"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <div class="logo-text-section">
+                    <div class="brand-name">Portfolio</div>
+                    <div class="tagline">Web Development</div>
+                    <div class="features">
+                        <span class="feature-tag">React</span>
+                        <span class="feature-tag">Vite</span>
+                        <span class="feature-tag">CSS3</span>
+                        <span class="feature-tag">Motion</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
