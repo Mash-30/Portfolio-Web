@@ -9,7 +9,7 @@ const Projects = () => {
       description: "Social networking platform with image sharing, real-time messaging, and user profiles",
       logoComponent: MediaXLogo,
       technologies: ["React", "Firebase", "Cloudinary", "Socket.io"],
-      liveUrl: "#",
+      liveUrl: "https://media-x-nine.vercel.app/",
       githubUrl: "https://github.com/Mash-30/Media-X"
     },
     {
@@ -18,7 +18,7 @@ const Projects = () => {
       description: "Property listing platform with advanced search, virtual tours, and agent management",
       logoComponent: EstateryLogo,
       technologies: ["Vue.js", "Node.js", "MongoDB", "Mapbox"],
-      liveUrl: "#",
+      liveUrl: "https://estatery-l8jg.vercel.app/",
       githubUrl: "https://github.com/Mash-30/estatery"
     },
     {
@@ -36,7 +36,7 @@ const Projects = () => {
       description: "Modern responsive portfolio with video backgrounds and interactive animations",
       logoComponent: PortfolioLogo,
       technologies: ["React", "Vite", "CSS3", "Framer Motion"],
-      liveUrl: "#",
+      liveUrl: "https://portfolio-web-iota-wheat.vercel.app/",
       githubUrl: "https://github.com/Mash-30/Portfolio-Web"
     }
   ]
