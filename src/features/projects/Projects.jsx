@@ -1,4 +1,5 @@
 import React from 'react'
+import { MediaXLogo, EstateryLogo, EdTechLogo, PortfolioLogo } from '../../shared/components/ProjectLogos'
 
 const Projects = () => {
   const projects = [
@@ -6,7 +7,7 @@ const Projects = () => {
       id: 1,
       title: "Social Media App",
       description: "Social networking platform with image sharing, real-time messaging, and user profiles",
-      image: "/Media_X_Logo.html",
+      logoComponent: MediaXLogo,
       technologies: ["React", "Firebase", "Cloudinary", "Socket.io"],
       liveUrl: "#",
       githubUrl: "https://github.com/Mash-30/Media-X"
@@ -15,7 +16,7 @@ const Projects = () => {
       id: 2,
       title: "Real Estate App",
       description: "Property listing platform with advanced search, virtual tours, and agent management",
-      image: "/estatery-logo.html",
+      logoComponent: EstateryLogo,
       technologies: ["Vue.js", "Node.js", "MongoDB", "Mapbox"],
       liveUrl: "#",
       githubUrl: "https://github.com/Mash-30/estatery"
@@ -24,7 +25,7 @@ const Projects = () => {
       id: 3,
       title: "EdTech Platform",
       description: "Online learning management system with video streaming, quizzes, and progress tracking",
-      image: "/My_Tutor_Logo.html",
+      logoComponent: EdTechLogo,
       technologies: ["React", "Express", "PostgreSQL", "AWS"],
       liveUrl: "https://ed-tech-h2jt.vercel.app/",
       githubUrl: "https://github.com/Mash-30/Ed-tech"
@@ -33,7 +34,7 @@ const Projects = () => {
       id: 4,
       title: "Portfolio Website",
       description: "Modern responsive portfolio with video backgrounds and interactive animations",
-      image: "/portfolio-logo.html",
+      logoComponent: PortfolioLogo,
       technologies: ["React", "Vite", "CSS3", "Framer Motion"],
       liveUrl: "#",
       githubUrl: "https://github.com/Mash-30/Portfolio-Web"
@@ -52,24 +53,9 @@ const Projects = () => {
           {projects.map((project) => (
             <div key={project.id} className="project-card">
               <div className="project-image">
-                {project.image.includes('.html') ? (
-                  <iframe
-                    src={project.image}
-                    title={project.title}
-                    className="project-iframe"
-                    allowFullScreen
-                  />
-                ) : (
-                  <video
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                    className="project-video"
-                  >
-                    <source src={project.image} type="video/mp4" />
-                  </video>
-                )}
+                <div className="project-logo-container">
+                  <project.logoComponent />
+                </div>
                 <div className="project-overlay">
                   <div className="project-links">
                     <a 
