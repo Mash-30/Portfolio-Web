@@ -782,8 +782,14 @@ body {
     font-size: 0.9rem;
   }
   
+  .hero {
+    min-height: 100vh;
+    min-height: 100dvh; /* Dynamic viewport height for mobile */
+  }
+  
   .hero-title {
     font-size: 2.5rem;
+    line-height: 1.2;
   }
   
   .hero-subtitle {
@@ -831,6 +837,47 @@ body {
   .project-link {
     padding: 0.6rem 1.2rem;
     font-size: 0.8rem;
+  }
+  
+  /* Enhanced mobile styles */
+  .hero-video {
+    object-fit: cover;
+    object-position: center;
+  }
+  
+  .about-container {
+    padding: 0 1rem;
+  }
+  
+  .about-description {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  
+  .carousel-container {
+    margin-top: 2rem;
+  }
+  
+  .logo-box {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .brand-logo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .project-card {
+    margin-bottom: 1rem;
+  }
+  
+  .project-image {
+    height: 200px;
+  }
+  
+  .project-content {
+    padding: 1rem;
   }
 }
 
@@ -1188,5 +1235,88 @@ body {
   
   .footer-container {
     padding: 0 1rem;
+  }
+}
+
+/* Enhanced Mobile Responsiveness */
+@media (max-width: 360px) {
+  .hero-title {
+    font-size: 1.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 0.9rem;
+  }
+  
+  .about-title {
+    font-size: 1.8rem;
+  }
+  
+  .projects-title {
+    font-size: 1.8rem;
+  }
+  
+  .contact-title {
+    font-size: 1.8rem;
+  }
+  
+  .nav-link {
+    font-size: 0.7rem;
+  }
+  
+  .brand-logo-container {
+    width: 70px;
+    height: 50px;
+  }
+  
+  .brand-logo {
+    width: 40px;
+    height: 30px;
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+  .nav-link:hover,
+  .hero-cta:hover,
+  .project-card:hover,
+  .social-link:hover {
+    transform: none;
+  }
+  
+  .nav-link:active,
+  .hero-cta:active,
+  .project-card:active,
+  .social-link:active {
+    transform: scale(0.95);
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .hero-video,
+  .project-video {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Landscape mobile orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+  .hero {
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+  
+  .hero-content {
+    padding: 1rem 0;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
   }
 }
