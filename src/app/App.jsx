@@ -1,35 +1,17 @@
-import { useState, useEffect, Suspense, lazy } from 'react'
+import { useState, useEffect } from 'react'
 import { usePerformance } from '../shared/hooks/usePerformance'
 import { trackPageView, trackEvent } from '../shared/utils/analytics'
 
-// Lazy load components for better performance
-const Splash = lazy(() => import('../features/splash/Splash'))
-const Navbar = lazy(() => import('../shared/components/Navbar'))
-const Hero = lazy(() => import('../features/hero/Hero'))
-const About = lazy(() => import('../features/about/About'))
-const Projects = lazy(() => import('../features/projects/Projects'))
-const Contact = lazy(() => import('../features/contact/Contact'))
-const Footer = lazy(() => import('../shared/components/Footer'))
+// Import components directly for immediate availability
+import Splash from '../features/splash/Splash'
+import Navbar from '../shared/components/Navbar'
+import Hero from '../features/hero/Hero'
+import BrandCarousel from '../shared/components/BrandCarousel'
+import About from '../features/about/About'
+import Projects from '../features/projects/Projects'
+import Contact from '../features/contact/Contact'
+import Footer from '../shared/components/Footer'
 
-const LoadingFallback = () => (
-  <div style={{
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: '100vh',
-    background: '#000',
-    color: '#fff'
-  }}>
-    <div style={{
-      width: '40px',
-      height: '40px',
-      border: '4px solid #333',
-      borderTop: '4px solid #00ff88',
-      borderRadius: '50%',
-      animation: 'spin 1s linear infinite'
-    }}></div>
-  </div>
-)
 
 const App = () => {
   const [showSplash, setShowSplash] = useState(true)
@@ -73,23 +55,18 @@ const App = () => {
   }
 
   if (showSplash) {
-    return (
-      <Suspense fallback={<LoadingFallback />}>
-        <Splash onComplete={handleSplashComplete} />
-      </Suspense>
-    )
+    return <Splash onComplete={handleSplashComplete} />
   }
 
   return (
     <div className="app">
-      <Suspense fallback={<LoadingFallback />}>
-        <Navbar />
-        <Hero />
-        <About />
-        <Projects />
-        <Contact />
-        <Footer />
-      </Suspense>
+      <Navbar />
+      <Hero />
+      <BrandCarousel />
+      <About />
+      <Projects />
+      <Contact />
+      <Footer />
     </div>
   )
 }

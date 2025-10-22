@@ -9,7 +9,7 @@ const Projects = () => {
       image: "/Media_X_Logo.html",
       technologies: ["React", "Firebase", "Cloudinary", "Socket.io"],
       liveUrl: "#",
-      githubUrl: "#"
+      githubUrl: "https://github.com/Mash-30/Media-X"
     },
     {
       id: 2,
@@ -18,7 +18,7 @@ const Projects = () => {
       image: "/estatery-logo.html",
       technologies: ["Vue.js", "Node.js", "MongoDB", "Mapbox"],
       liveUrl: "#",
-      githubUrl: "#"
+      githubUrl: "https://github.com/Mash-30/estatery"
     },
     {
       id: 3,
@@ -26,8 +26,8 @@ const Projects = () => {
       description: "Online learning management system with video streaming, quizzes, and progress tracking",
       image: "/My_Tutor_Logo.html",
       technologies: ["React", "Express", "PostgreSQL", "AWS"],
-      liveUrl: "#",
-      githubUrl: "#"
+      liveUrl: "https://ed-tech-h2jt.vercel.app/",
+      githubUrl: "https://github.com/Mash-30/Ed-tech"
     },
     {
       id: 4,
@@ -36,7 +36,7 @@ const Projects = () => {
       image: "/portfolio-logo.html",
       technologies: ["React", "Vite", "CSS3", "Framer Motion"],
       liveUrl: "#",
-      githubUrl: "#"
+      githubUrl: "https://github.com/Mash-30/Portfolio-Web"
     }
   ]
 
@@ -72,10 +72,20 @@ const Projects = () => {
                 )}
                 <div className="project-overlay">
                   <div className="project-links">
-                    <a href={project.liveUrl} className="project-link live-link">
+                    <a 
+                      href={project.liveUrl} 
+                      className="project-link live-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <span>Live Demo</span>
                     </a>
-                    <a href={project.githubUrl} className="project-link github-link">
+                    <a 
+                      href={project.githubUrl} 
+                      className="project-link github-link"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <span>GitHub</span>
                     </a>
                   </div>
