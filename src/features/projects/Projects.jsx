@@ -1,5 +1,5 @@
 import React from 'react'
-import { MediaXLogo, EstateryLogo, EdTechLogo, PortfolioLogo } from '../../shared/components/ProjectLogos'
+import { MediaXLogo, EstateryLogo, EdTechLogo, PortfolioLogo, CrestaLogo, CampfireLogo, RevolutLogo } from '../../shared/components/ProjectLogos'
 
 const Projects = () => {
   const projects = [
@@ -38,6 +38,33 @@ const Projects = () => {
       technologies: ["React", "Vite", "CSS3", "Framer Motion"],
       liveUrl: "https://portfolio-web-iota-wheat.vercel.app/",
       githubUrl: "https://github.com/Mash-30/Portfolio-Web"
+    },
+    {
+      id: 5,
+      title: "Cresta",
+      description: "AI-powered customer service platform with intelligent automation and analytics",
+      logoComponent: CrestaLogo,
+      technologies: ["AI/ML", "Python", "React", "AWS"],
+      liveUrl: "https://cresta.com/",
+      githubUrl: null
+    },
+    {
+      id: 6,
+      title: "Campfire.ai",
+      description: "Collaborative AI workspace for teams with intelligent project management",
+      logoComponent: CampfireLogo,
+      technologies: ["AI", "Node.js", "React", "MongoDB"],
+      liveUrl: "https://campfire.ai/",
+      githubUrl: null
+    },
+    {
+      id: 7,
+      title: "Revolut",
+      description: "Digital banking and financial services platform with global reach",
+      logoComponent: RevolutLogo,
+      technologies: ["Fintech", "React", "Node.js", "PostgreSQL"],
+      liveUrl: "https://revolut.com/",
+      githubUrl: null
     }
   ]
 
@@ -66,14 +93,16 @@ const Projects = () => {
                     >
                       <span>Live Demo</span>
                     </a>
-                    <a 
-                      href={project.githubUrl} 
-                      className="project-link github-link"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      <span>GitHub</span>
-                    </a>
+                    {project.githubUrl && (
+                      <a 
+                        href={project.githubUrl} 
+                        className="project-link github-link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        <span>GitHub</span>
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>
