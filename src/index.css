@@ -6,6 +6,13 @@
 
 html {
   scroll-behavior: smooth;
+  height: 100%;
+}
+
+@supports (height: 100dvh) {
+  html {
+    height: 100dvh;
+  }
 }
 
 /* Fallback for browsers that don't support smooth scrolling */
@@ -20,6 +27,15 @@ body {
   color: #fff;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
   overflow-x: hidden;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+@supports (height: 100dvh) {
+  body {
+    height: 100dvh;
+  }
 }
 
 .app {
@@ -414,25 +430,211 @@ body {
   box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.2);
 }
 
-/* Splash */
+/* Splash - Desktop */
 .splash {
   position: fixed;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
   width: 100vw;
   height: 100vh;
   z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background-color: #000;
   overflow: hidden;
 }
 
 .splash-video {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center;
+}
+
+/* Mobile Splash Screen - Responsive */
+@media (max-width: 768px) {
+  .splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    height: -webkit-fill-available;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+  }
+  
+  @supports (height: 100dvh) {
+    .splash {
+      height: 100dvh;
+    }
+  }
+  
+  .splash-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    height: -webkit-fill-available;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+  
+  @supports (height: 100dvh) {
+    .splash-video {
+      height: 100dvh;
+      min-height: 100dvh;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    height: -webkit-fill-available;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+  }
+  
+  @supports (height: 100dvh) {
+    .splash {
+      height: 100dvh;
+    }
+  }
+  
+  .splash-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    height: -webkit-fill-available;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+  
+  @supports (height: 100dvh) {
+    .splash-video {
+      height: 100dvh;
+      min-height: 100dvh;
+    }
+  }
+}
+
+/* Landscape orientation on mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    height: -webkit-fill-available;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+  }
+  
+  @supports (height: 100dvh) {
+    .splash {
+      height: 100dvh;
+    }
+  }
+  
+  .splash-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    height: -webkit-fill-available;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+  
+  @supports (height: 100dvh) {
+    .splash-video {
+      height: 100dvh;
+      min-height: 100dvh;
+    }
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .splash {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    height: -webkit-fill-available;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+  }
+  
+  @supports (height: 100dvh) {
+    .splash {
+      height: 100dvh;
+    }
+  }
+  
+  .splash-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: 100vh;
+    height: -webkit-fill-available;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: contain;
+    object-position: center;
+  }
+  
+  @supports (height: 100dvh) {
+    .splash-video {
+      height: 100dvh;
+      min-height: 100dvh;
+    }
+  }
 }
 
 /* About Section */
